@@ -1,0 +1,19 @@
+2024-05-08T13:35:26.201073429 0.014485s notice: Recursively removing directory /var/www/html/real-time-app-be/rethinkdb_data/tmp
+2024-05-08T13:35:26.205711955 0.019123s notice: Initializing directory /var/www/html/real-time-app-be/rethinkdb_data
+2024-05-08T13:35:26.206035965 0.019447s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/var/www/html/real-time-app-be/rethinkdb_data' did not already exist or is empty.)
+2024-05-08T13:35:26.206682556 0.020094s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
+2024-05-08T13:35:26.209211731 0.022623s notice: Running on Linux 6.5.0-28-generic x86_64
+2024-05-08T13:35:26.209306145 0.022717s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
+2024-05-08T13:35:26.246888800 0.060300s info: Automatically using cache size of 1054 MB
+2024-05-08T13:35:26.250921994 0.064333s notice: Listening for intracluster connections on port 29015
+2024-05-08T13:35:26.259039711 0.072451s notice: Listening for client driver connections on port 28015
+2024-05-08T13:35:26.259380454 0.072791s notice: Listening for administrative HTTP connections on port 8080
+2024-05-08T13:35:26.259409870 0.072820s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2024-05-08T13:35:26.259441542 0.072852s notice: Listening on driver addresses: 127.0.0.1, ::1
+2024-05-08T13:35:26.259461814 0.072872s notice: Listening on http addresses: 127.0.0.1, ::1
+2024-05-08T13:35:26.259481432 0.072892s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2024-05-08T13:35:26.259495290 0.072906s notice: Server ready, "shasakyoto_g45" 8cc25ff7-3c9a-4ad0-be75-8922a6118904
+2024-05-08T13:54:51.925838930 1165.739250s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Starting a new Raft election for term 1.
+2024-05-08T13:54:51.926899827 1165.740311s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Added replica on this server.
+2024-05-08T13:54:51.937142797 1165.750553s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: This server is Raft leader for term 1. Latest log index is 0.
+2024-05-08T18:01:26.288291053 15960.101702s warn: RethinkDB has been accessing a lot of swap memory in the past ten minutes. This may impact performace.
