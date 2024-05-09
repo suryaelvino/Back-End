@@ -1,5 +1,7 @@
 node_modules/
 dist/
+rethinkdb_data/
+uploads/
 .env
 *.log
 *.tmp
