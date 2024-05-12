@@ -24,7 +24,7 @@ const routesAdmin = [
 ];
 
 const routesFile = [
-    { url: `${api}/photosprofil/:id`,       method: "post", handler: (req: any, res: any) => { return photosProfil(req, res) } },
+    { url: `${api}/photosprofil/:id`,       method: "post",   handler: (req: any, res: any) => { return photosProfil(req, res) } },
     { url: `${api}/deletephotosprofil/:id`, method: "delete", handler: (req: any, res: any) => { return deletePhotoProfil(req, res) } },
 ];
 

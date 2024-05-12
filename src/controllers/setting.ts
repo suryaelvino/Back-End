@@ -1,6 +1,6 @@
 import { Connection } from "../models/database";
 import path from 'path';
-import { upload, deleteOldPhoto } from "../helpers/files";
+import { upload, deleteOldPhoto } from "../helpers/config.files";
 const db = new Connection();
 db.connect();
 
@@ -9,6 +9,7 @@ const allowedImage = ['.png', '.jpg', '.jpeg'];
 
 async function photosProfil(req:any, res:any) {
     upload.array('files', 1)(req, res, async (err:any) => {
+        console.time("uploadProfil");
         if (err) {
             if (err.code === 'LIMIT_FILE_SIZE') {
                 console.log('File too large');
@@ -33,6 +34,7 @@ async function photosProfil(req:any, res:any) {
             const fileName = path.basename(filePath);
             const imageUrl = `${baseURL}uploads/${fileName}`;
             await db.updateData('users', { id: req.params.id }, { photos_url: imageUrl });
+            console.timeEnd("uploadProfil");
             return res.status(200).json({ photos_url: imageUrl });
         } catch (error) {
             console.error(`Failed to process photo profile: ${error.message}`);

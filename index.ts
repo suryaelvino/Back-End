@@ -3,7 +3,6 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import { routesAuth, routesUser, routesAdmin, routesFile } from './src/routes/routes';
 import { validateToken } from './src/helpers/token';
-import { upload } from './src/helpers/files';
 import bodyParser from 'body-parser';
 const app = express();
 const port = process.env.PORT || 3000;

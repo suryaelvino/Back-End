@@ -1,272 +1,33 @@
-2024-05-08T13:35:26.201073429 0.014485s notice: Recursively removing directory /var/www/html/real-time-app-be/rethinkdb_data/tmp
-2024-05-08T13:35:26.205711955 0.019123s notice: Initializing directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-08T13:35:26.206035965 0.019447s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/var/www/html/real-time-app-be/rethinkdb_data' did not already exist or is empty.)
-2024-05-08T13:35:26.206682556 0.020094s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
-2024-05-08T13:35:26.209211731 0.022623s notice: Running on Linux 6.5.0-28-generic x86_64
-2024-05-08T13:35:26.209306145 0.022717s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-08T13:35:26.246888800 0.060300s info: Automatically using cache size of 1054 MB
-2024-05-08T13:35:26.250921994 0.064333s notice: Listening for intracluster connections on port 29015
-2024-05-08T13:35:26.259039711 0.072451s notice: Listening for client driver connections on port 28015
-2024-05-08T13:35:26.259380454 0.072791s notice: Listening for administrative HTTP connections on port 8080
-2024-05-08T13:35:26.259409870 0.072820s notice: Listening on cluster addresses: 127.0.0.1, ::1
-2024-05-08T13:35:26.259441542 0.072852s notice: Listening on driver addresses: 127.0.0.1, ::1
-2024-05-08T13:35:26.259461814 0.072872s notice: Listening on http addresses: 127.0.0.1, ::1
-2024-05-08T13:35:26.259481432 0.072892s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
-2024-05-08T13:35:26.259495290 0.072906s notice: Server ready, "shasakyoto_g45" 8cc25ff7-3c9a-4ad0-be75-8922a6118904
-2024-05-08T13:54:51.925838930 1165.739250s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Starting a new Raft election for term 1.
-2024-05-08T13:54:51.926899827 1165.740311s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Added replica on this server.
-2024-05-08T13:54:51.937142797 1165.750553s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: This server is Raft leader for term 1. Latest log index is 0.
-2024-05-08T18:01:26.288291053 15960.101702s warn: RethinkDB has been accessing a lot of swap memory in the past ten minutes. This may impact performace.
-2024-05-09T05:36:44.115143539 0.010566s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
-2024-05-09T05:36:44.118314146 0.013737s notice: Running on Linux 6.5.0-28-generic x86_64
-2024-05-09T05:36:44.118413485 0.013835s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-09T05:36:44.133514051 0.028936s notice: Ignoring --initial-password option because the admin password is already configured.
-2024-05-09T05:36:44.139453530 0.034876s info: Automatically using cache size of 1622 MB
-2024-05-09T05:36:44.146179227 0.041601s notice: Listening for intracluster connections on port 29015
-2024-05-09T05:36:44.175383136 0.070805s notice: Listening for client driver connections on port 28015
-2024-05-09T05:36:44.175544703 0.070967s notice: Listening for administrative HTTP connections on port 8080
-2024-05-09T05:36:44.175965785 0.071388s notice: Listening on cluster addresses: 127.0.0.1, ::1
-2024-05-09T05:36:44.175977859 0.071400s notice: Listening on driver addresses: 127.0.0.1, ::1
-2024-05-09T05:36:44.175992987 0.071415s notice: Listening on http addresses: 127.0.0.1, ::1
-2024-05-09T05:36:44.176013230 0.071435s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
-2024-05-09T05:36:44.176026191 0.071448s notice: Server ready, "shasakyoto_g45" 8cc25ff7-3c9a-4ad0-be75-8922a6118904
-2024-05-09T05:36:46.110562320 2.005984s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Starting a new Raft election for term 2.
-2024-05-09T05:36:46.112911274 2.008333s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: This server is Raft leader for term 2. Latest log index is 2.
-2024-05-09T14:18:28.727621576 31304.623044s notice: Server got SIGINT from pid 0, uid 0; shutting down...
-2024-05-09T14:18:28.727735403 31304.623157s notice: Shutting down client connections...
-2024-05-09T14:18:28.730239335 31304.625661s notice: All client connections closed.
-2024-05-09T14:18:28.730247008 31304.625669s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
-2024-05-09T14:18:28.752459928 31304.647882s notice: Storage engine shut down.
-2024-05-09T14:21:16.474385321 0.005408s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
-2024-05-09T14:21:16.478591476 0.009615s notice: Running on Linux 6.5.0-28-generic x86_64
-2024-05-09T14:21:16.478796022 0.009818s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-09T14:21:16.490990407 0.022013s notice: Ignoring --initial-password option because the admin password is already configured.
-2024-05-09T14:21:16.494634350 0.025657s info: Automatically using cache size of 462 MB
-2024-05-09T14:21:16.518033637 0.049056s notice: Listening for intracluster connections on port 28015
-2024-05-09T14:21:16.563158539 0.094181s error: Could not bind to RDB protocol port: The address at localhost:28015 is reserved or already in use.
-2024-05-09T14:22:46.701778412 0.020508s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
-2024-05-09T14:22:46.721270227 0.040001s notice: Running on Linux 6.5.0-28-generic x86_64
-2024-05-09T14:22:46.721610539 0.040340s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-09T14:22:46.738562746 0.057292s notice: Ignoring --initial-password option because the admin password is already configured.
-2024-05-09T14:22:46.762386392 0.081116s info: Automatically using cache size of 466 MB
-2024-05-09T14:22:46.787322048 0.106051s notice: Listening for intracluster connections on port 28016
-2024-05-09T14:22:46.827266716 0.145996s notice: Listening for client driver connections on port 28015
-2024-05-09T14:22:46.827794231 0.146524s notice: Listening for administrative HTTP connections on port 8080
-2024-05-09T14:22:46.827806661 0.146536s notice: Listening on cluster addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T14:22:46.827822780 0.146552s notice: Listening on driver addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T14:22:46.827855291 0.146584s notice: Listening on http addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T14:22:46.828378331 0.147108s notice: Server ready, "shasakyoto_g45" 8cc25ff7-3c9a-4ad0-be75-8922a6118904
-2024-05-09T14:22:48.546080109 1.864810s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Starting a new Raft election for term 3.
-2024-05-09T14:22:48.549020946 1.867750s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: This server is Raft leader for term 3. Latest log index is 5.
-2024-05-09T14:25:42.870152687 176.188882s notice: Connected to server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:25:42.879978299 176.198707s notice: Disconnected from server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:26:30.559788608 223.878518s notice: Connected to server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:26:30.564220794 223.882950s notice: Disconnected from server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:28:11.555439823 324.874169s notice: Connected to server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:28:11.583833154 324.902563s notice: Disconnected from server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:29:22.708332907 396.027062s notice: Connected to server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:29:22.716765780 396.035495s notice: Disconnected from server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:30:04.685337334 438.004067s notice: Connected to server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:30:04.695436692 438.014166s notice: Disconnected from server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:30:30.789857091 464.108586s notice: Connected to server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:34:41.966366993 715.285096s notice: Disconnected from server "shasakyoto_dxy" bcc9ce0d-90bf-43a3-b594-5c8e09c49442
-2024-05-09T14:35:51.265665648 784.584395s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T14:35:55.431606534 788.750336s warn: Connection attempt from 172.17.0.1:29015 failed, reason: unexpected server id (actual: b2ba99b2-3080-4210-96cc-bb9e92a50e74, expected: bcc9ce0d-90bf-43a3-b594-5c8e09c49442) 
-2024-05-09T14:35:55.433423508 788.752153s warn: Connection attempt from 192.168.1.8:29015 failed, reason: unexpected server id (actual: b2ba99b2-3080-4210-96cc-bb9e92a50e74, expected: bcc9ce0d-90bf-43a3-b594-5c8e09c49442) 
-2024-05-09T14:35:55.435244450 788.753974s warn: Connection attempt from [fe80::b556:5a15:810c:8dd9%3]:29015 failed, reason: unexpected server id (actual: b2ba99b2-3080-4210-96cc-bb9e92a50e74, expected: bcc9ce0d-90bf-43a3-b594-5c8e09c49442) 
-2024-05-09T14:38:42.839996014 956.158725s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T14:42:43.955007242 1197.273737s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T14:43:14.496544299 1227.815274s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T14:44:19.308142369 1292.626872s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T14:44:39.858688219 1313.177418s info: Table 89da1c59-d404-4dd4-9e74-85b1ccf08a4f: Added replica on this server.
-2024-05-09T14:46:11.496422098 1404.815151s notice: Removing file /var/www/html/real-time-app-be/rethinkdb_data/89da1c59-d404-4dd4-9e74-85b1ccf08a4f
-2024-05-09T14:46:11.496438228 1404.815167s info: Table 89da1c59-d404-4dd4-9e74-85b1ccf08a4f: Removed replica on this server.
-2024-05-09T14:46:32.195561451 1425.514291s info: Table 89da1c59-d404-4dd4-9e74-85b1ccf08a4f: Added replica on this server.
-2024-05-09T14:49:55.337842170 1628.656572s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T14:49:58.037497521 1631.356227s notice: Removing file /var/www/html/real-time-app-be/rethinkdb_data/017c9c68-cc76-4696-b07c-860af5fe385f
-2024-05-09T14:49:58.037526640 1631.356256s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Removed replica on this server.
-2024-05-09T14:50:25.645185932 1658.963915s info: Table 89da1c59-d404-4dd4-9e74-85b1ccf08a4f: Starting a new Raft election for term 4.
-2024-05-09T14:50:25.648278397 1658.967008s info: Table 89da1c59-d404-4dd4-9e74-85b1ccf08a4f: This server is Raft leader for term 4. Latest log index is 52.
-2024-05-09T14:55:44.266017323 1977.584747s notice: Removing file /var/www/html/real-time-app-be/rethinkdb_data/89da1c59-d404-4dd4-9e74-85b1ccf08a4f
-2024-05-09T14:55:44.266048057 1977.584777s info: Table 89da1c59-d404-4dd4-9e74-85b1ccf08a4f: Deleted the table.
-2024-05-09T15:15:16.974785161 3150.293515s notice: Server got SIGINT from pid 0, uid 0; shutting down...
-2024-05-09T15:15:16.974860387 3150.293589s notice: Shutting down client connections...
-2024-05-09T15:15:16.974935945 3150.293665s notice: All client connections closed.
-2024-05-09T15:15:16.974942660 3150.293672s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
-2024-05-09T15:15:16.975769713 3150.294499s notice: Storage engine shut down.
-2024-05-09T15:15:16.976361230 3150.295090s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:17:44.894985905 0.005126s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
-2024-05-09T15:17:44.898794402 0.008936s notice: Running on Linux 6.5.0-28-generic x86_64
-2024-05-09T15:17:44.899004806 0.009145s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-09T15:17:44.912630079 0.022771s notice: Ignoring --initial-password option because the admin password is already configured.
-2024-05-09T15:17:44.916141122 0.026282s info: Automatically using cache size of 197 MB
-2024-05-09T15:17:44.927253351 0.037394s notice: Listening for intracluster connections on port 28016
-2024-05-09T15:17:44.929609093 0.039749s notice: Listening for client driver connections on port 28015
-2024-05-09T15:17:44.930071150 0.040211s notice: Listening for administrative HTTP connections on port 8080
-2024-05-09T15:17:44.930086972 0.040227s notice: Listening on cluster addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T15:17:44.930104895 0.040245s notice: Listening on driver addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T15:17:44.930122644 0.040263s notice: Listening on http addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T15:17:44.930138309 0.040278s notice: Server ready, "shasakyoto_g45" 8cc25ff7-3c9a-4ad0-be75-8922a6118904
-2024-05-09T15:17:52.556393657 7.666534s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:25:19.481467031 454.591607s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:27:00.349885348 555.460026s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:28:05.663465600 620.773606s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Added replica on this server.
-2024-05-09T15:28:21.670716957 636.780857s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:28:23.003017351 638.113158s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Starting a new Raft election for term 7.
-2024-05-09T15:28:24.250171445 639.360312s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 8.
-2024-05-09T15:28:27.115304873 642.225445s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 9.
-2024-05-09T15:28:30.033456980 645.143598s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 10.
-2024-05-09T15:28:35.050592341 650.160733s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 11.
-2024-05-09T15:28:41.909748107 657.019889s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 12.
-2024-05-09T15:28:52.827891703 667.938032s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 13.
-2024-05-09T15:29:11.219033729 686.329174s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 14.
-2024-05-09T15:29:32.671162423 707.781303s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 15.
-2024-05-09T15:29:55.467266270 730.577407s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 16.
-2024-05-09T15:30:14.239432412 749.349573s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 17.
-2024-05-09T15:30:42.243337709 777.353478s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 18.
-2024-05-09T15:31:06.977426743 802.087567s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 19.
-2024-05-09T15:31:30.088647034 825.198788s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 20.
-2024-05-09T15:31:54.288794642 849.398935s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 21.
-2024-05-09T15:32:18.149995707 873.260136s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 22.
-2024-05-09T15:32:38.570106143 893.680246s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 23.
-2024-05-09T15:32:54.096281661 909.206422s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 24.
-2024-05-09T15:33:09.686402438 924.796543s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 25.
-2024-05-09T15:33:26.245640635 941.355781s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:33:26.284522420 941.394663s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: This server is Raft leader for term 25. Latest log index is 74.
-2024-05-09T15:33:56.642138268 971.752279s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T15:34:44.036965696 1019.147106s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:35:10.264770408 1045.374911s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:35:27.690273305 1062.800414s notice: Server got SIGINT from pid 0, uid 0; shutting down...
-2024-05-09T15:35:27.690365042 1062.800505s notice: Shutting down client connections...
-2024-05-09T15:35:27.694412068 1062.804552s notice: All client connections closed.
-2024-05-09T15:35:27.694425826 1062.804566s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
-2024-05-09T15:35:27.704502764 1062.814643s notice: Storage engine shut down.
-2024-05-09T15:35:27.704994361 1062.815135s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:36:12.276222907 0.005653s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
-2024-05-09T15:36:12.280325789 0.009757s notice: Running on Linux 6.5.0-28-generic x86_64
-2024-05-09T15:36:12.280437004 0.009867s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-09T15:36:12.294573153 0.024003s notice: Ignoring --initial-password option because the admin password is already configured.
-2024-05-09T15:36:12.301670174 0.031100s info: Automatically using cache size of 468 MB
-2024-05-09T15:36:12.312596084 0.042026s notice: Listening for intracluster connections on port 28016
-2024-05-09T15:36:12.339580703 0.069011s notice: Listening for client driver connections on port 28015
-2024-05-09T15:36:12.341127717 0.070558s notice: Listening for administrative HTTP connections on port 8080
-2024-05-09T15:36:12.341170679 0.070600s notice: Listening on cluster addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T15:36:12.341189319 0.070619s notice: Listening on driver addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T15:36:12.341227595 0.070657s notice: Listening on http addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T15:36:12.341262933 0.070693s notice: Server ready, "shasakyoto_g45" 8cc25ff7-3c9a-4ad0-be75-8922a6118904
-2024-05-09T15:36:13.471341721 1.200772s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Starting a new Raft election for term 26.
-2024-05-09T15:36:14.833473823 2.562904s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 27.
-2024-05-09T15:36:17.529639812 5.259070s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 28.
-2024-05-09T15:36:20.528812957 8.258243s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 29.
-2024-05-09T15:36:26.187904498 13.917334s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:41:56.616474704 344.345905s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:41:58.604575243 346.334005s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Starting a new Raft election for term 34.
-2024-05-09T15:42:00.333705968 348.063136s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 35.
-2024-05-09T15:42:03.040805542 350.770235s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 36.
-2024-05-09T15:42:06.044851284 353.774281s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 37.
-2024-05-09T15:42:10.634369147 358.363799s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 38.
-2024-05-09T15:42:16.026229021 363.755659s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 39.
-2024-05-09T15:42:21.093056644 368.822487s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:42:21.115256877 368.844687s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: This server is Raft leader for term 39. Latest log index is 94.
-2024-05-09T15:48:53.137270732 760.866701s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:49:07.422953031 775.152383s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:49:18.611238147 786.340668s notice: Server got SIGINT from pid 0, uid 0; shutting down...
-2024-05-09T15:49:18.611315443 786.340745s notice: Shutting down client connections...
-2024-05-09T15:49:18.611818708 786.341249s notice: All client connections closed.
-2024-05-09T15:49:18.611823943 786.341254s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
-2024-05-09T15:49:18.621080633 786.350511s notice: Storage engine shut down.
-2024-05-09T15:49:18.622747637 786.352178s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T15:49:29.572317246 0.005476s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
-2024-05-09T15:49:29.576926192 0.010086s notice: Running on Linux 6.5.0-28-generic x86_64
-2024-05-09T15:49:29.577160042 0.010319s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-09T15:49:29.589218221 0.022377s notice: Ignoring --initial-password option because the admin password is already configured.
-2024-05-09T15:49:29.593289952 0.026448s info: Automatically using cache size of 614 MB
-2024-05-09T15:49:29.601080125 0.034239s notice: Listening for intracluster connections on port 28016
-2024-05-09T15:49:29.628266238 0.061425s notice: Listening for client driver connections on port 28015
-2024-05-09T15:49:29.628839227 0.061998s notice: Listening for administrative HTTP connections on port 8080
-2024-05-09T15:49:29.628851132 0.062009s notice: Listening on cluster addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T15:49:29.628862778 0.062021s notice: Listening on driver addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T15:49:29.628872932 0.062031s notice: Listening on http addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T15:49:29.628913375 0.062072s notice: Server ready, "shasakyoto_g45" 8cc25ff7-3c9a-4ad0-be75-8922a6118904
-2024-05-09T15:49:31.445916769 1.879075s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T16:03:56.627336661 867.060495s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T16:03:57.632754010 868.065913s notice: Server got SIGINT from pid 0, uid 0; shutting down...
-2024-05-09T16:03:57.632859330 868.066018s notice: Shutting down client connections...
-2024-05-09T16:03:57.633423961 868.066583s notice: All client connections closed.
-2024-05-09T16:03:57.633431501 868.066590s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
-2024-05-09T16:03:57.645587039 868.078746s notice: Storage engine shut down.
-2024-05-09T16:09:38.205439903 0.005310s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
-2024-05-09T16:09:38.209316317 0.009188s notice: Running on Linux 6.5.0-28-generic x86_64
-2024-05-09T16:09:38.209629395 0.009500s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-09T16:09:38.222544719 0.022415s notice: Ignoring --initial-password option because the admin password is already configured.
-2024-05-09T16:09:38.226650997 0.026521s info: Automatically using cache size of 545 MB
-2024-05-09T16:09:38.234454484 0.034325s notice: Listening for intracluster connections on port 28016
-2024-05-09T16:09:38.265270577 0.065141s notice: Listening for client driver connections on port 28015
-2024-05-09T16:09:38.265423077 0.065293s notice: Listening for administrative HTTP connections on port 8080
-2024-05-09T16:09:38.265459689 0.065330s notice: Listening on cluster addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T16:09:38.265471037 0.065341s notice: Listening on driver addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T16:09:38.265485136 0.065355s notice: Listening on http addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T16:09:38.265496638 0.065367s notice: Server ready, "shasakyoto_g45" 8cc25ff7-3c9a-4ad0-be75-8922a6118904
-2024-05-09T16:09:39.750914173 1.550785s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Starting a new Raft election for term 44.
-2024-05-09T16:09:40.956089034 2.755959s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 45.
-2024-05-09T16:09:43.788224966 5.588095s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 46.
-2024-05-09T16:09:46.431589902 8.231461s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 47.
-2024-05-09T16:09:50.702723037 12.502594s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 48.
-2024-05-09T16:09:57.019946432 18.819817s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 49.
-2024-05-09T16:10:04.652050025 26.451920s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 50.
-2024-05-09T16:10:19.695200924 41.495072s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 51.
-2024-05-09T16:10:48.699303614 70.499174s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 52.
-2024-05-09T16:11:04.621464921 86.421335s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 53.
-2024-05-09T16:11:32.653608681 114.453479s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 54.
-2024-05-09T16:11:58.860809041 140.660680s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 55.
-2024-05-09T16:12:20.274905979 162.074776s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 56.
-2024-05-09T16:12:45.725207515 187.525078s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 57.
-2024-05-09T16:13:06.577359519 208.377230s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 58.
-2024-05-09T16:13:30.843462919 232.643333s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 59.
-2024-05-09T16:14:00.048594202 261.848465s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 60.
-2024-05-09T16:14:26.459757961 288.259629s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 61.
-2024-05-09T16:14:51.939868502 313.739739s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 62.
-2024-05-09T16:15:21.002986024 342.802856s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 63.
-2024-05-09T16:15:45.625163532 367.425034s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 64.
-2024-05-09T16:16:03.348202133 385.148073s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T16:16:03.376191334 385.176062s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: This server is Raft leader for term 64. Latest log index is 102.
-2024-05-09T16:16:12.306963746 394.106834s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T16:16:14.851880344 396.651751s notice: Removing file /var/www/html/real-time-app-be/rethinkdb_data/017c9c68-cc76-4696-b07c-860af5fe385f
-2024-05-09T16:16:14.851896921 396.651767s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Removed replica on this server.
-2024-05-09T16:16:32.287348039 414.087219s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T16:16:51.747133703 433.547004s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T16:17:25.046817680 466.846688s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Added replica on this server.
-2024-05-09T16:18:58.418124043 560.217995s notice: Server got SIGINT from pid 0, uid 0; shutting down...
-2024-05-09T16:18:58.418224213 560.218094s notice: Shutting down client connections...
-2024-05-09T16:18:58.418694463 560.218565s notice: All client connections closed.
-2024-05-09T16:18:58.418701219 560.218571s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
-2024-05-09T16:18:58.427480750 560.227351s notice: Storage engine shut down.
-2024-05-09T16:18:58.428533648 560.228404s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T16:19:28.734451136 0.004261s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
-2024-05-09T16:19:28.737555866 0.007367s notice: Running on Linux 6.5.0-28-generic x86_64
-2024-05-09T16:19:28.737659475 0.007469s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
-2024-05-09T16:19:28.752221995 0.022031s notice: Ignoring --initial-password option because the admin password is already configured.
-2024-05-09T16:19:28.755881282 0.025691s info: Automatically using cache size of 621 MB
-2024-05-09T16:19:28.769842851 0.039652s notice: Listening for intracluster connections on port 28016
-2024-05-09T16:19:28.806127364 0.075937s notice: Listening for client driver connections on port 28015
-2024-05-09T16:19:28.806347950 0.076157s notice: Listening for administrative HTTP connections on port 8080
-2024-05-09T16:19:28.806396633 0.076206s notice: Listening on cluster addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T16:19:28.806411102 0.076220s notice: Listening on driver addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T16:19:28.806422577 0.076232s notice: Listening on http addresses: 127.0.0.1, 172.17.0.1, 192.168.1.8, ::1, fe80::b556:5a15:810c:8dd9%3
-2024-05-09T16:19:28.806456772 0.076266s notice: Server ready, "shasakyoto_g45" 8cc25ff7-3c9a-4ad0-be75-8922a6118904
-2024-05-09T16:19:30.177014596 1.446824s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Starting a new Raft election for term 67.
-2024-05-09T16:19:32.108213276 3.378023s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 68.
-2024-05-09T16:19:34.725375949 5.995185s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 69.
-2024-05-09T16:19:37.235714573 8.505525s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 70.
-2024-05-09T16:19:41.305835101 12.575645s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Raft election timed out. Starting a new election for term 71.
-2024-05-09T16:19:41.903063789 13.172873s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T16:19:41.923331580 13.193141s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: This server is Raft leader for term 71. Latest log index is 141.
-2024-05-09T16:22:38.572582546 189.842393s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T16:23:04.425151002 215.694960s notice: Disconnected from server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T16:23:17.791868141 229.061678s notice: Connected to server "shasakyoto_9ev" b2ba99b2-3080-4210-96cc-bb9e92a50e74
-2024-05-09T16:23:40.389268245 251.659078s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T16:28:31.018569553 542.288379s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T16:28:40.686048137 551.955857s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T16:43:31.976997245 1443.246807s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T16:44:08.916093095 1480.185903s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
-2024-05-09T16:44:46.196005458 1517.465815s info: Table 017c9c68-cc76-4696-b07c-860af5fe385f: Configuration is changing.
+2024-05-10T10:38:14.854489075 0.097089s notice: Recursively removing directory /var/www/html/real-time-app-be/rethinkdb_data/tmp
+2024-05-10T10:38:14.909936221 0.152536s notice: Initializing directory /var/www/html/real-time-app-be/rethinkdb_data
+2024-05-10T10:38:14.910297054 0.152897s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/var/www/html/real-time-app-be/rethinkdb_data' did not already exist or is empty.)
+2024-05-10T10:38:14.910372744 0.152972s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
+2024-05-10T10:38:14.914914412 0.157516s notice: Running on Linux 6.5.0-28-generic x86_64
+2024-05-10T10:38:14.915144873 0.157744s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
+2024-05-10T10:38:15.377876197 0.620476s info: Automatically using cache size of 642 MB
+2024-05-10T10:38:15.379363653 0.621963s notice: Listening for intracluster connections on port 29015
+2024-05-10T10:38:15.381349610 0.623949s notice: Listening for client driver connections on port 28015
+2024-05-10T10:38:15.381512289 0.624112s notice: Listening for administrative HTTP connections on port 8080
+2024-05-10T10:38:15.381529105 0.624128s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2024-05-10T10:38:15.381545642 0.624145s notice: Listening on driver addresses: 127.0.0.1, ::1
+2024-05-10T10:38:15.382290283 0.624891s notice: Listening on http addresses: 127.0.0.1, ::1
+2024-05-10T10:38:15.382345250 0.624945s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2024-05-10T10:38:15.382364710 0.624964s notice: Server ready, "shasakyoto_ghv" 34d76938-a39b-4ec8-a81c-c66ad2ce4daf
+2024-05-10T10:38:35.376705793 20.619305s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: Starting a new Raft election for term 1.
+2024-05-10T10:38:35.377130991 20.619730s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: Added replica on this server.
+2024-05-10T10:38:35.380546920 20.623147s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: This server is Raft leader for term 1. Latest log index is 0.
+2024-05-12T19:57:09.365224488 0.011009s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
+2024-05-12T19:57:09.368174685 0.013960s notice: Running on Linux 6.5.0-28-generic x86_64
+2024-05-12T19:57:09.368248442 0.014032s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
+2024-05-12T19:57:09.383116819 0.028901s notice: Ignoring --initial-password option because the admin password is already configured.
+2024-05-12T19:57:09.389018175 0.034802s info: Automatically using cache size of 2364 MB
+2024-05-12T19:57:09.396208698 0.041993s notice: Listening for intracluster connections on port 29015
+2024-05-12T19:57:09.428737649 0.074522s notice: Listening for client driver connections on port 28015
+2024-05-12T19:57:09.428919252 0.074703s notice: Listening for administrative HTTP connections on port 8080
+2024-05-12T19:57:09.428936600 0.074720s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2024-05-12T19:57:09.428948218 0.074732s notice: Listening on driver addresses: 127.0.0.1, ::1
+2024-05-12T19:57:09.428960964 0.074745s notice: Listening on http addresses: 127.0.0.1, ::1
+2024-05-12T19:57:09.428977219 0.074761s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2024-05-12T19:57:09.428986910 0.074771s notice: Server ready, "shasakyoto_ghv" 34d76938-a39b-4ec8-a81c-c66ad2ce4daf
+2024-05-12T19:57:11.214544449 1.860329s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: Starting a new Raft election for term 2.
+2024-05-12T19:57:11.216977374 1.862762s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: This server is Raft leader for term 2. Latest log index is 2.
