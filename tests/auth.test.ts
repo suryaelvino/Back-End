@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { app } from '../index';
-import { Connection } from "../src/models/database";
+import { Connection } from "../src/connection/database";
 const db = new Connection();
 db.connect()
 

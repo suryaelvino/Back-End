@@ -1,31 +1,26 @@
 import express from 'express';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
-import { routesAuth, routesUser, routesAdmin, routesFile } from './src/routes/routes';
-import { validateToken } from './src/helpers/token';
+import { authRoutes } from './src/auth/routes/authRoutes';
+import { validateToken } from './src/auth/helpers/authToken';
 import bodyParser from 'body-parser';
 const app = express();
 const port = process.env.PORT || 3000;
-
-const limiter = rateLimit({
+const limiter = (maxRequests:number) => rateLimit({
     windowMs: 1 * 60 * 1000,
-    max: 60,
+    max: maxRequests,
     standardHeaders: true,
     legacyHeaders: false,
 });
 const authWithoutToken = [
     "login", "register", "forgotpassword", "updatenewpassword"
 ]
-const imageOption = [
-    "photosprofil"
-]
+
 app.use(cors());
-app.use(limiter);
 app.use(bodyParser.text());
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
 app.use('/uploads', express.static('uploads'));
-
 
 const corsOptions = {
     origin: ['http://localhost:8100', 'http://127.0.0.1:8100'],
@@ -34,45 +29,46 @@ const corsOptions = {
     credentials: true,
 };
 app.all('/*', function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
+    res.setHeader('Content-Security-Policy', "default-src 'self'");
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    next()
 });
 
-registerRoutes(routesAuth);
-registerRoutes(routesUser);
-registerRoutes(routesAdmin);
-registerRoutes(routesFile);
 
-function registerRoutes(routes: any) {
+const services = [
+    authRoutes, 
+];
+services.forEach(registerService);
+
+function registerService(routes: any) {
     routes.map((route: any) => {
         const method = route.method.toLowerCase();
         const url = route.url;
         const withoutToken = authWithoutToken.some((routePart) => url.includes(routePart));
-        const uploadImage = imageOption.some((routePart)=> url.includes(routePart));
         switch (method) {
             case 'get':
-                app.get(url, cors(corsOptions),validateToken ,route.handler);
+                app.get(url, cors(corsOptions), validateToken , limiter(60), route.handler);
                 break;
             case 'post':
-                if (uploadImage) {
-                    app.post(url, cors(corsOptions), route.handler);
-                } 
-                else if (withoutToken) {
-                    app.post(url, cors(corsOptions), route.handler);
+                if (withoutToken) {
+                    app.post(url, cors(corsOptions), limiter(5) ,route.handler);
                 }
                 else {
-                    app.post(url, cors(corsOptions),validateToken, route.handler);
+                    app.post(url, cors(corsOptions), validateToken, limiter(60), route.handler);
                 }
                 break;
             case 'put':
-                app.put(url, cors(corsOptions),validateToken, route.handler);
+                app.put(url, cors(corsOptions), validateToken, limiter(60), route.handler);
                 break;
             case 'delete':
-                app.delete(url, cors(corsOptions), route.handler);
+                app.delete(url, cors(corsOptions), validateToken, limiter(60), route.handler);
                 break;
             case 'patch':
-                app.patch(url, cors(corsOptions),validateToken, route.handler);
+                app.patch(url, cors(corsOptions), validateToken, limiter(60), route.handler);
                 break;
             default:
                 console.warn(`Unknown method '${method}' for route '${url}'`);
