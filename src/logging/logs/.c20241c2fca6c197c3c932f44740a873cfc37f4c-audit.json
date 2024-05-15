@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "/var/www/html/real-time-app-be/src/logging/logs/.c20241c2fca6c197c3c932f44740a873cfc37f4c-audit.json",
+    "files": [
+        {
+            "date": 1715769106290,
+            "name": "/var/www/html/real-time-app-be/src/logging/logs/application-2024-05-15.log",
+            "hash": "da0eba0ae3e6d6820e5b1f899a84b7070d5b46e9474e91501db96860a0bada18"
+        }
+    ],
+    "hashType": "sha256"
+}

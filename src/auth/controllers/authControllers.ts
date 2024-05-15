@@ -1,41 +1,56 @@
 import { Connection } from "../../connection/database";
-import md5 from "md5";
 import { createTokenUser, createTokenAdmin } from "../helpers/authToken";
+import { comparePasswords, hashPassword } from "../helpers/authBcrypt";
 import { UserData,typeofUserRegister } from "../helpers/authConfig";
 import { sendEmail, validateTimeOtp } from "../helpers/authEmail";
+import logs from "../../logging/logs"
+
 const db = new Connection();
 db.connect();
+
+const myService = 'Auth Service';
+const logger = logs(myService);
 
 async function login(req: any, res: any) {
     const { email, password } = req.body;
     try {
+        console.time("userLogin");
         const tables = {
-            admin   : "admin",
-            user    : "user",
-            member  : "member"
+            admin: "admin",
+            user: "user",
+            member: "member"
         };
-        if (!req.body.email || !req.body.password) {
-                return res.status(400).json({ message: "Email and password are required" });
+        if (!email || !password) {
+            return res.status(400).json({ message: "Email and password are required" });
         }
         for (const userType in tables) {
-            let condition:object = { email:email, password: md5(password) };
-            const users: any = await db.getDataFiltered(tables[userType], condition, 1);
+            const users: any = await db.getDataFiltered(tables[userType], { email }, 1);
             if (users.length > 0) {
                 const user = users[0];
-                const result = { id: user.id, name: user.name };
-                let token: string;
-                if (userType === "admin") {
-                    token = createTokenAdmin(result);
-                } else {
-                    token = createTokenUser(result);
+                const hashedPasswordFromDatabase = user.password;
+                const match = await comparePasswords(password, hashedPasswordFromDatabase);
+                if (match) {
+                    const result = { id: user.id, name: user.name };
+                    let token: string;
+                    if (userType === "admin") {
+                        token = createTokenAdmin(result);
+                    } else {
+                        token = createTokenUser(result);
+                    }
+                    console.log(`Success ${userType.charAt(0).toUpperCase() + userType.slice(1)} Login`, result);
+                    logger.info(`Success Login with ${email}`);
+                    console.timeEnd("userLogin");
+                    return res.status(200).json({ result, token, message: "success login" });
+                } else{
+                    console.timeEnd("userLogin");
+                    logger.error(`Failed Login ${email}`,);
+                    return res.status(404).json({ message: "Please check email and password is correct" });
                 }
-                console.log(`Success ${userType.charAt(0).toUpperCase() + userType.slice(1)} Login`, result);
-                return res.status(200).json({ result, token, message: "success login" });
             }
         }
-        return res.status(404).json({ message: "Please check email and password is correct" });
     } catch (error) {
         console.error("Internal server error:", error);
+        logger.error(`Internal server error`);
         return res.status(500).json({ message: "Internal server error", error });
     }
 };
@@ -66,7 +81,7 @@ async function userRegister(req: any, res: any) {
             name        : name,
             email       : email,
             phonenumber : phonenumber,
-            password    : md5(password),
+            password    : hashPassword(password),
             created_at  : new Date().valueOf(),
             update_at   : new Date().valueOf(),
             status      : 'ACTIVATE',
@@ -133,7 +148,7 @@ async function updateNewPassword(req: any, res: any) {
         if (!isTimeValid) {
             return res.status(400).json({ message: 'Expired OTP' });
         }
-        const newpassword = md5(password);
+        const newpassword = hashPassword(password);
         let data:object = { password: newpassword };
         await Promise.all([
             db.updateData('users',  { email : email }, data),

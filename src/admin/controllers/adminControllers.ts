@@ -2,7 +2,7 @@ import { Connection } from "../../connection/database";
 import { r } from 'rethinkdb-ts';
 import { typeofAdminRegister } from "../helpers/adminConfig";
 import { AdminData } from "../helpers/adminConfig";
-import md5 from "md5";
+import { hashPassword } from "../../auth/helpers/authBcrypt";
 const db = new Connection();
 db.connect();
 
@@ -69,7 +69,7 @@ export async function addadmin(req: any, res: any) {
             name            : name,
             email           : email,
             phonenumber     : phonenumber,
-            password        : md5(password),
+            password        : hashPassword(password),
             role            : role,
             created_at      : new Date().valueOf(),
             update_at       : new Date().valueOf(),
@@ -88,7 +88,7 @@ export async function changePwAdmin(req: any, res: any) {
     try {
         const { password } = req.body;
         let data = {
-            password: md5(password),
+            password: hashPassword(password),
         }
         await db.updateData("admin", { id: req.params.id }, data);
         return res.status(200).json({ message: "Success update password admin" });
