@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import { authRoutes } from './src/auth/routes/authRoutes';
+import { adminRoutes } from './src/admin/routes/adminRoutes';
 import {authenticateAdmin, authenticateUser } from './src/auth/helpers/authToken';
 import bodyParser from 'body-parser';
 const app = express();
@@ -43,6 +44,7 @@ app.all('/*', function (req, res, next) {
 
 const services = [
     authRoutes, 
+    adminRoutes
 ];
 services.forEach(registerService);
 

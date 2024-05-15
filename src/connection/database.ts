@@ -53,9 +53,19 @@ class Connection {
         });
     }
 
-    public async getOrderedData(table: string, filter: any, order:any, limit?:number){
+    public async getFilteredOrderedData(table: string, filter: any, order:any, limit?:number){
         return new Promise((resolve, reject) => {
             r.table(table).filter(filter).orderBy(order).limit(limit ? limit : dbconfig.defaultPageLimit).run(this.conn).then((result: any) => {
+                return resolve(result);
+            }).catch((er: any) => {
+                return reject(er);
+            })
+        });
+    }
+
+    public async getAllDataPagination(table: string, order: any, skip:any, limit?: number) {
+        return new Promise((resolve, reject) => {
+            r.table(table).orderBy(order).skip(skip).limit(limit ? limit : dbconfig.defaultPageLimit).run(this.conn).then((result: any) => {
                 return resolve(result);
             }).catch((er: any) => {
                 return reject(er);
