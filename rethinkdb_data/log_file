@@ -56,3 +56,24 @@
 2024-05-14T19:35:14.777945784 12076.953264s info: Table e057c909-0d98-467d-a2a6-dc006bcfac03: Starting a new Raft election for term 1.
 2024-05-14T19:35:14.778583896 12076.953902s info: Table e057c909-0d98-467d-a2a6-dc006bcfac03: Added replica on this server.
 2024-05-14T19:35:14.786491682 12076.961810s info: Table e057c909-0d98-467d-a2a6-dc006bcfac03: This server is Raft leader for term 1. Latest log index is 0.
+2024-05-15T07:59:08.793888038 0.012261s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
+2024-05-15T07:59:08.798541119 0.016915s notice: Running on Linux 6.5.0-28-generic x86_64
+2024-05-15T07:59:08.798636338 0.017009s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
+2024-05-15T07:59:08.815471243 0.033844s notice: Ignoring --initial-password option because the admin password is already configured.
+2024-05-15T07:59:08.823723679 0.042096s info: Automatically using cache size of 1563 MB
+2024-05-15T07:59:08.828169826 0.046542s notice: Listening for intracluster connections on port 29015
+2024-05-15T07:59:08.917352741 0.135725s notice: Listening for client driver connections on port 28015
+2024-05-15T07:59:08.917841199 0.136214s notice: Listening for administrative HTTP connections on port 8080
+2024-05-15T07:59:08.917854430 0.136227s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2024-05-15T07:59:08.917866244 0.136239s notice: Listening on driver addresses: 127.0.0.1, ::1
+2024-05-15T07:59:08.917920307 0.136293s notice: Listening on http addresses: 127.0.0.1, ::1
+2024-05-15T07:59:08.917935366 0.136308s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2024-05-15T07:59:08.917951873 0.136324s notice: Server ready, "shasakyoto_ghv" 34d76938-a39b-4ec8-a81c-c66ad2ce4daf
+2024-05-15T07:59:10.702339712 1.920712s info: Table e057c909-0d98-467d-a2a6-dc006bcfac03: Starting a new Raft election for term 2.
+2024-05-15T07:59:10.705797549 1.924170s info: Table e057c909-0d98-467d-a2a6-dc006bcfac03: This server is Raft leader for term 2. Latest log index is 2.
+2024-05-15T07:59:10.747113870 1.965487s info: Table 045a4eb3-bd94-4465-ac13-52af97ea6384: Starting a new Raft election for term 2.
+2024-05-15T07:59:10.749786030 1.968159s info: Table 045a4eb3-bd94-4465-ac13-52af97ea6384: This server is Raft leader for term 2. Latest log index is 2.
+2024-05-15T07:59:10.756375310 1.974748s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: Starting a new Raft election for term 4.
+2024-05-15T07:59:10.759060397 1.977433s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: This server is Raft leader for term 4. Latest log index is 9.
+2024-05-15T07:59:10.796210297 2.014583s info: Table 206df52d-7195-4f04-b2a2-9eaec01ade1c: Starting a new Raft election for term 2.
+2024-05-15T07:59:10.798740518 2.017113s info: Table 206df52d-7195-4f04-b2a2-9eaec01ade1c: This server is Raft leader for term 2. Latest log index is 2.

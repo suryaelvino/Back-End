@@ -2,40 +2,63 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
 dotenv.config();
-const secretKey = process.env.SECRET_KEY;
+const secretKey         = process.env.SECRET_KEY;
+const secretKeyAdmin    = process.env.SECRET_KEY_ADMIN;
 
-export function createToken(payload: object): string {
-    if (!secretKey) {
+function createToken(payload: object, key: string, expiresIn: string): string {
+    if (!key) {
         throw new Error('Secret key not found');
     }
-    const token = jwt.sign(payload, secretKey, {
-        expiresIn: '7d',
+    return jwt.sign(payload, key, {
+        expiresIn: expiresIn,
+        algorithm: 'HS256'
     });
-    return token;
 }
 
-function verifyToken(token: string): any | null {
-    if (!secretKey) {
-        throw new Error('Token not found');
+function verifyToken(token: string, key: string): any | null {
+    if (!key) {
+        throw new Error('Secret key not found');
     }
     try {
-        const decoded = jwt.verify(token, secretKey);
-        return decoded;
+        return jwt.verify(token, key);
     } catch (err) {
         console.error('Invalid token');
         return null;
     }
 }
-export const validateToken = (req: any, res: any, next: any) => {
+
+export const authenticateAdmin = (req: any, res: any, next: any) => {
     const token = req.headers.authorization;
     if (!token) {
         return res.status(401).json({ message: 'Unauthorized: Token not provided' });
     }
     const bearerToken = token.split(' ')[1] || token;
-    const decoded = verifyToken(bearerToken);
-    if (!decoded) {
-        return res.status(401).json({ message: 'Unauthorized: Invalid token' });
+    const decodedAdmin = verifyToken(bearerToken, secretKeyAdmin);
+    if (!decodedAdmin) {
+        return res.status(401).json({ message: 'Unauthorized: Invalid admin token' });
     }
-    req.user = decoded;
+    req.admin = decodedAdmin;
     next();
 };
+
+export const authenticateUser = (req: any, res: any, next: any) => {
+    const token = req.headers.authorization;
+    if (!token) {
+        return res.status(401).json({ message: 'Unauthorized: Token not provided' });
+    }
+    const bearerToken = token.split(' ')[1] || token;
+    const decodedUser = verifyToken(bearerToken, secretKey);
+    if (!decodedUser) {
+        return res.status(401).json({ message: 'Unauthorized: Invalid user token' });
+    }
+    req.user = decodedUser;
+    next();
+};
+
+export function createTokenUser(payload: object): string {
+    return createToken(payload, secretKey, '7d');
+}
+
+export function createTokenAdmin(payload: object): string {
+    return createToken(payload, secretKeyAdmin, '12h');
+}

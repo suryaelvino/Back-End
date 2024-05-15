@@ -1,6 +1,6 @@
 import { Connection } from "../../connection/database";
 import md5 from "md5";
-import { createToken } from "../helpers/authToken";
+import { createTokenUser, createTokenAdmin } from "../helpers/authToken";
 import { UserData,typeofUserRegister } from "../helpers/authConfig";
 import { sendEmail, validateTimeOtp } from "../helpers/authEmail";
 const db = new Connection();
@@ -18,12 +18,17 @@ async function login(req: any, res: any) {
                 return res.status(400).json({ message: "Email and password are required" });
         }
         for (const userType in tables) {
-            const condition = { email, password: md5(password) };
+            let condition:object = { email:email, password: md5(password) };
             const users: any = await db.getDataFiltered(tables[userType], condition, 1);
             if (users.length > 0) {
                 const user = users[0];
                 const result = { id: user.id, name: user.name };
-                const token = createToken(result);
+                let token: string;
+                if (userType === "admin") {
+                    token = createTokenAdmin(result);
+                } else {
+                    token = createTokenUser(result);
+                }
                 console.log(`Success ${userType.charAt(0).toUpperCase() + userType.slice(1)} Login`, result);
                 return res.status(200).json({ result, token, message: "success login" });
             }
@@ -35,7 +40,6 @@ async function login(req: any, res: any) {
     }
 };
 
-
 async function userRegister(req: any, res: any) {
     const { email, phonenumber, name, password } = req.body;
     try {
@@ -46,7 +50,7 @@ async function userRegister(req: any, res: any) {
         if (!typeofUserRegister(email, phonenumber, name, password)) {
             return res.status(400).json({ message: "Invalid data type for one or more fields" });
         }
-        const [emailUsers, phoneUsers]: any = await Promise.all([
+        let [emailUsers, phoneUsers]: any = await Promise.all([
             db.getDataFiltered("user", { email: email }, 1),
             db.getDataFiltered("user", { phonenumber: phonenumber }, 1)
         ]);
@@ -58,14 +62,14 @@ async function userRegister(req: any, res: any) {
             console.timeEnd("userRegister");
             return res.status(409).json({ message: "Phonenumber already exists" });
         }
-        const data: UserData = {
-            name: name,
-            email: email,
-            phonenumber: phonenumber,
-            password: md5(password),
-            created_at: new Date().valueOf(),
-            update_at: new Date().valueOf(),
-            status: 'ACTIVATE',
+        let data: UserData = {
+            name        : name,
+            email       : email,
+            phonenumber : phonenumber,
+            password    : md5(password),
+            created_at  : new Date().valueOf(),
+            update_at   : new Date().valueOf(),
+            status      : 'ACTIVATE',
         };
         await db.insertData("user", data);
         console.timeEnd("userRegister");
@@ -82,17 +86,17 @@ async function forgotPassword(req: any, res: any) {
         if (!email) {
             return res.status(400).json({ message: "Email required" });
         }
-        const [userResults, forgotResults]: any = await Promise.all([
-            db.getDataFiltered("user", { email }),
-            db.getDataFiltered("forgot", { email })
+        let [userResults, forgotResults]: any = await Promise.all([
+            db.getDataFiltered("user",   { email : email }, 1),
+            db.getDataFiltered("forgot", { email : email }, 1)
         ]);
         if (userResults.length !== 0) {
             const otp = await sendEmail(email, 'Lupa Kata Sandi');
             console.log("otp", otp);
-            const data = {
-                email: email,
-                otp: otp,
-                created_at: new Date().valueOf()
+            let data:object = {
+                email       : email,
+                otp         : otp,
+                created_at  : new Date().valueOf()
             }
             if (forgotResults.length !== 0) {
                 await db.updateData("forgot", { email : email }, data);
@@ -112,28 +116,32 @@ async function forgotPassword(req: any, res: any) {
         res.status(500).send('Internal server error:');
     }
 }
+
 async function updateNewPassword(req: any, res: any) { 
     const { email, otp, password } = req.body;
     try {
         if (!email || !otp || !password) {
             return res.status(400).json({ message: 'All fields are required' });
         }
-        const result:any = await db.getDataFiltered('forgot', { email, otp });
+        let condition:object = { email: email, otp: otp };
+        const result:any = await db.getDataFiltered('forgot', condition, 1);
         if (result.length === 0) {
             return res.status(404).json({ message: 'No matching OTP found for the email and OTP' });
         }
-        const { created_at: createdAt } = result[0];
+        let { created_at: createdAt } = result[0];
         const isTimeValid = validateTimeOtp(createdAt);
         if (!isTimeValid) {
             return res.status(400).json({ message: 'Expired OTP' });
         }
-        const hashedPassword = md5(password);
-        const data = { password: hashedPassword };
-        await db.updateData('users', { email : email }, data, );
-        await db.deleteData('forgot', { email : email });
+        const newpassword = md5(password);
+        let data:object = { password: newpassword };
+        await Promise.all([
+            db.updateData('users',  { email : email }, data),
+            db.deleteData('forgot', { email : email })
+        ]);
         return res.status(200).json({ message: 'Password updated successfully' });
     } catch (error) {
-        console.error(`Failed to update password: ${error}`);
+        console.error(`Internal server error: ${error}`);
         return res.status(500).json({ message: 'Internal server error'});
     }
 }

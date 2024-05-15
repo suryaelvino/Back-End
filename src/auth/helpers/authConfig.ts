@@ -6,11 +6,11 @@ export function typeofUserRegister(email: any, phonenumber: any, name: any, pass
 }
 
 export interface UserData {
-    name: string;
-    email: string;
-    password: string;
-    phonenumber: string;
-    created_at: number;
-    update_at: number;
-    status: string;
+    name        : string;
+    email       : string;
+    password    : string;
+    phonenumber : string;
+    created_at  : number;
+    update_at   : number;
+    status      : string;
 }

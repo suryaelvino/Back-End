@@ -2,6 +2,10 @@ import { r } from 'rethinkdb-ts';
 import { dbconfig } from './databaseConfig';
 import { resolve } from 'path';
 
+interface JoinedData {
+    [key: string]: any;
+}
+
 class Connection {
     conn: any;
 
@@ -11,7 +15,7 @@ class Connection {
 
     public async connect() {
         try {
-            await this.conn; // Wait for the connection to establish
+            await this.conn;
             console.info("Database connected");
             return "Database Connected";
         } catch (error) {
@@ -29,7 +33,7 @@ class Connection {
         });
     }
 
-    public async getData(table: string) {
+    public async getAllData(table: string) {
         return new Promise((resolve, reject) => {
             r.table(table).run(this.conn).then((result: any) => {
                 return resolve(result);
@@ -46,6 +50,48 @@ class Connection {
             }).catch((er: any) => {
                 return reject(er);
             })
+        });
+    }
+
+    public async getOrderedData(table: string, filter: any, order:any, limit?:number){
+        return new Promise((resolve, reject) => {
+            r.table(table).filter(filter).orderBy(order).limit(limit ? limit : dbconfig.defaultPageLimit).run(this.conn).then((result: any) => {
+                return resolve(result);
+            }).catch((er: any) => {
+                return reject(er);
+            })
+        });
+    }
+
+    public async getListOrderedData(table: string, filter: any, order: any) {
+        return new Promise((resolve, reject) => {
+            r.table(table).filter(filter).orderBy(order).run(this.conn).then((result: any) => {
+                return resolve(result);
+            }).catch((er: any) => {
+                return reject(er);
+            })
+        });
+    }
+
+    public async getJoinedData(table1: string, table2: string, column: string, where: any) {
+        return new Promise((resolve, reject) => {
+            r.table(table1).eqJoin(column, r.table(table2), { index: column })
+                .map((row: any) => {
+                    return {
+                        [column]: row("left")(column),
+                        left: row("left"),
+                        right: row("right")
+                    };
+                })
+                .filter(where)
+                .run(this.conn)
+                .then((result: any[]) => {
+                    this.conn.close();
+                    resolve(result);
+                }).catch((error: any) => {
+                    this.conn.close();
+                    reject(error);
+                });
         });
     }
 
