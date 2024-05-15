@@ -11,9 +11,9 @@ export const hashPassword = (plainPassword: string): string => {
     }
 };
 
-export const comparePasswords = async (plainPassword: string, hashedPasswordFromDatabase: string): Promise<boolean> => {
+export const comparePasswords = (plainPassword: string, hashedPasswordFromDatabase: string): Promise<boolean> => {
     try {
-        const match = await bcrypt.compare(plainPassword, hashedPasswordFromDatabase);
+        const match = bcrypt.compare(plainPassword, hashedPasswordFromDatabase);
         return match;
     } catch (error) {
         throw error;

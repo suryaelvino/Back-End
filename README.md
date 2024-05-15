@@ -2,7 +2,7 @@
 
 **Tech Stack**
 
-Node, Express, Nodemailer, Jsonwebtoken, RethinkDB, Rate Limiter and Unit Testing with Jest.
+Node, Express, Nodemailer, Jsonwebtoken, RethinkDB, Rate Limiter, Jest, and Winston.
 
 
 

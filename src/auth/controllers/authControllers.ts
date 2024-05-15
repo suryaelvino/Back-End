@@ -14,7 +14,6 @@ const logger = logs(myService);
 async function login(req: any, res: any) {
     const { email, password } = req.body;
     try {
-        console.time("userLogin");
         const tables = {
             admin: "admin",
             user: "user",
@@ -23,8 +22,9 @@ async function login(req: any, res: any) {
         if (!email || !password) {
             return res.status(400).json({ message: "Email and password are required" });
         }
-        for (const userType in tables) {
-            const users: any = await db.getDataFiltered(tables[userType], { email }, 1);
+        for (const userType of Object.keys(tables)) {
+            const tableName = tables[userType];
+            const users: any = await db.getDataFiltered(tableName, { email }, 1);
             if (users.length > 0) {
                 const user = users[0];
                 const hashedPasswordFromDatabase = user.password;
@@ -38,22 +38,25 @@ async function login(req: any, res: any) {
                         token = createTokenUser(result);
                     }
                     console.log(`Success ${userType.charAt(0).toUpperCase() + userType.slice(1)} Login`, result);
-                    logger.info(`Success Login with ${email}`);
-                    console.timeEnd("userLogin");
+                    // logger.info(`Success Login with ${email}`);
                     return res.status(200).json({ result, token, message: "success login" });
-                } else{
-                    console.timeEnd("userLogin");
-                    logger.error(`Failed Login ${email}`,);
+                } else {
+                    console.log('Failed Login incorrect email and password');
+                    // logger.error(`Failed Login ${email}`,);
                     return res.status(404).json({ message: "Please check email and password is correct" });
                 }
             }
         }
+        console.log('Failed Login User Not Found');
+        // logger.error(`Failed Login ${email}`,);
+        return res.status(404).json({ message: "Please check email and password is correct" });
     } catch (error) {
         console.error("Internal server error:", error);
-        logger.error(`Internal server error`);
+        // logger.error(`Internal server error`);
         return res.status(500).json({ message: "Internal server error", error });
     }
 };
+
 
 async function userRegister(req: any, res: any) {
     const { email, phonenumber, name, password } = req.body;

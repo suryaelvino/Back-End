@@ -1,0 +1,28 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 1
+      arrivalRate: 20
+    - duration: 2
+      arrivalRate: 20
+    - duration: 3
+      arrivalRate: 20
+    - duration: 4
+      arrivalRate: 20
+    - duration: 5
+      arrivalRate: 20    
+scenarios:
+  - flow:
+      - post:
+          url: "/api/auth/login"
+          json:
+            email: "jonathan@example.com"
+            password: "12345678"
+
+        #   capture:
+        #     json: "$.token"
+        #     as: "token"
+    #   - get:
+    #       url: "/api/user"
+    #       headers:
+    #         Authorization: "Bearer {{token}}"
