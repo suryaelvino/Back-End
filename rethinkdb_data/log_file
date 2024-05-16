@@ -98,3 +98,29 @@
 2024-05-15T16:26:14.537134589 1.496497s info: Table 045a4eb3-bd94-4465-ac13-52af97ea6384: This server is Raft leader for term 3. Latest log index is 5.
 2024-05-15T16:26:15.054939608 2.014302s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: Starting a new Raft election for term 5.
 2024-05-15T16:26:15.057503983 2.016866s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: This server is Raft leader for term 5. Latest log index is 12.
+2024-05-16T12:40:03.624029367 0.010436s notice: Running rethinkdb 2.4.4~0jammy (x86_64-linux-gnu) (GCC 11.4.0)...
+2024-05-16T12:40:03.628223150 0.014632s notice: Running on Linux 6.5.0-35-generic x86_64
+2024-05-16T12:40:03.628453615 0.014860s notice: Loading data from directory /var/www/html/real-time-app-be/rethinkdb_data
+2024-05-16T12:40:03.646577108 0.032984s notice: Ignoring --initial-password option because the admin password is already configured.
+2024-05-16T12:40:03.656229521 0.042636s info: Automatically using cache size of 1072 MB
+2024-05-16T12:40:03.661518611 0.047925s notice: Listening for intracluster connections on port 29015
+2024-05-16T12:40:03.750568391 0.136975s notice: Listening for client driver connections on port 28015
+2024-05-16T12:40:03.751232704 0.137640s notice: Listening for administrative HTTP connections on port 8080
+2024-05-16T12:40:03.751253975 0.137661s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2024-05-16T12:40:03.751266445 0.137673s notice: Listening on driver addresses: 127.0.0.1, ::1
+2024-05-16T12:40:03.751276338 0.137683s notice: Listening on http addresses: 127.0.0.1, ::1
+2024-05-16T12:40:03.751287506 0.137694s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2024-05-16T12:40:03.751301745 0.137708s notice: Server ready, "shasakyoto_ghv" 34d76938-a39b-4ec8-a81c-c66ad2ce4daf
+2024-05-16T12:40:04.968884053 1.355291s info: Table 045a4eb3-bd94-4465-ac13-52af97ea6384: Starting a new Raft election for term 4.
+2024-05-16T12:40:04.974007697 1.360415s info: Table 045a4eb3-bd94-4465-ac13-52af97ea6384: This server is Raft leader for term 4. Latest log index is 8.
+2024-05-16T12:40:05.008733121 1.395140s info: Table e057c909-0d98-467d-a2a6-dc006bcfac03: Starting a new Raft election for term 4.
+2024-05-16T12:40:05.011434673 1.397842s info: Table e057c909-0d98-467d-a2a6-dc006bcfac03: This server is Raft leader for term 4. Latest log index is 8.
+2024-05-16T12:40:05.204827000 1.591234s info: Table 206df52d-7195-4f04-b2a2-9eaec01ade1c: Starting a new Raft election for term 4.
+2024-05-16T12:40:05.219929746 1.606337s info: Table 206df52d-7195-4f04-b2a2-9eaec01ade1c: This server is Raft leader for term 4. Latest log index is 8.
+2024-05-16T12:40:05.336755535 1.723162s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: Starting a new Raft election for term 6.
+2024-05-16T12:40:05.338671846 1.725079s info: Table 74572247-a235-4ab5-ba41-ed3a12191681: This server is Raft leader for term 6. Latest log index is 15.
+2024-05-16T15:47:15.049518345 11231.435926s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2024-05-16T15:47:15.052850729 11231.439258s notice: Shutting down client connections...
+2024-05-16T15:47:15.054731306 11231.441138s notice: All client connections closed.
+2024-05-16T15:47:15.054741573 11231.441148s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2024-05-16T15:47:15.137884479 11231.524291s notice: Storage engine shut down.

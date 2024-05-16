@@ -15,48 +15,43 @@ async function login(req: any, res: any) {
     const { email, password } = req.body;
     try {
         const tables = {
-            admin: "admin",
-            user: "user",
-            member: "member"
+        admin: 'admin',
+        user: 'user',
+        member: 'member'
         };
+
         if (!email || !password) {
-            return res.status(400).json({ message: "Email and password are required" });
+        return res.status(400).json({ message: 'Email and password are required' });
         }
+
         for (const userType of Object.keys(tables)) {
-            const tableName = tables[userType];
-            const users: any = await db.getDataFiltered(tableName, { email }, 1);
-            if (users.length > 0) {
-                const user = users[0];
-                const hashedPasswordFromDatabase = user.password;
-                const match = await comparePasswords(password, hashedPasswordFromDatabase);
-                if (match) {
-                    const result = { id: user.id, name: user.name };
-                    let token: string;
-                    if (userType === "admin") {
-                        token = createTokenAdmin(result);
-                    } else {
-                        token = createTokenUser(result);
-                    }
-                    console.log(`Success ${userType.charAt(0).toUpperCase() + userType.slice(1)} Login`, result);
-                    // logger.info(`Success Login with ${email}`);
-                    return res.status(200).json({ result, token, message: "success login" });
-                } else {
-                    console.log('Failed Login incorrect email and password');
-                    // logger.error(`Failed Login ${email}`,);
-                    return res.status(404).json({ message: "Please check email and password is correct" });
-                }
+        const tableName = tables[userType];
+        const users: any = await db.getDataFiltered(tableName, { email }, 1);
+        if (users.length > 0) {
+            const user = users[0];
+            const hashedPasswordFromDatabase = user.password;
+            const match = await comparePasswords(password, hashedPasswordFromDatabase);
+            if (match) {
+            const result = { id: user.id, name: user.name };
+            let token: string;
+            if (userType === 'admin') {
+                token = createTokenAdmin(result);
+            } else {
+                token = createTokenUser(result);
+            }
+            console.log(`Success ${userType.charAt(0).toUpperCase() + userType.slice(1)} Login`, result);
+            return res.status(200).json({ result, token, message: 'success login' });
             }
         }
-        console.log('Failed Login User Not Found');
-        // logger.error(`Failed Login ${email}`,);
-        return res.status(404).json({ message: "Please check email and password is correct" });
-    } catch (error) {
-        console.error("Internal server error:", error);
-        // logger.error(`Internal server error`);
-        return res.status(500).json({ message: "Internal server error", error });
-    }
-};
+        }
 
+        console.log('Failed Login User Not Found');
+        return res.status(404).json({ message: 'Please check email and password is correct' });
+    } catch (error) {
+        console.error('Internal server error:', error);
+        return res.status(500).json({ message: 'Internal server error', error });
+    }
+}
 
 async function userRegister(req: any, res: any) {
     const { email, phonenumber, name, password } = req.body;
@@ -163,5 +158,4 @@ async function updateNewPassword(req: any, res: any) {
         return res.status(500).json({ message: 'Internal server error'});
     }
 }
-
 export { login, userRegister, forgotPassword, updateNewPassword };

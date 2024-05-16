@@ -4,6 +4,8 @@ import rateLimit from 'express-rate-limit';
 import { authRoutes } from './src/auth/routes/authRoutes';
 import { adminRoutes } from './src/admin/routes/adminRoutes';
 import {authenticateAdmin, authenticateUser } from './src/auth/helpers/authToken';
+import { testDatabaseConnection } from './src/connection/seqeulize';
+import { userRoutes } from './src/users/routes/usersRoutes';
 import bodyParser from 'body-parser';
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,12 +15,15 @@ const limiter = (maxRequests:number) => rateLimit({
     standardHeaders: true,
     legacyHeaders: false,
 });
+
 const authWithoutToken = [
     "login", "register", "forgotpassword", "updatenewpassword"
 ]
+
 const adminToken = [
     "getlistadmin", "getdetailadmin/:id", "addadmin", "updateadmin/:id", "changepwadmin/:id", "deleteeadmin/:id"
 ]
+
 app.use(cors());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -43,6 +48,7 @@ app.all('/*', function (req, res, next) {
 
 
 const services = [
+    userRoutes,
     authRoutes, 
     adminRoutes
 ];
@@ -57,10 +63,12 @@ function registerService(routes: any) {
         switch (method) {
             case 'get':
                 if (adminpath) {
-                    app.get(url, cors(corsOptions), authenticateAdmin, limiter(60), route.handler);
+                    // app.get(url, cors(corsOptions), authenticateAdmin, limiter(60), route.handler);
+                    app.get(url, cors(corsOptions), limiter(60), route.handler);
                 }
                 else {
-                    app.get(url, cors(corsOptions), authenticateUser , limiter(60), route.handler);
+                    // app.get(url, cors(corsOptions), authenticateUser , limiter(60), route.handler);
+                    app.get(url, cors(corsOptions), limiter(60), route.handler);
                 }
                 break;
             case 'post':
@@ -105,6 +113,7 @@ function registerService(routes: any) {
     });
 }
 
+testDatabaseConnection();
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
